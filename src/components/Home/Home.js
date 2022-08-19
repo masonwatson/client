@@ -11,19 +11,13 @@ import "./Home.css";
 
 const Home = () => {
   const movies = useSelector((state) => state.movies);
-  // const movie = useSelector((state) => state.movie);
   const dispatch = useDispatch();
 
   const [selectedMovie, setSelectedMovie] = useState({});
-  // const [playTrailer, setPlayTrailer] = useState(false); 
   
   const selectMovie = (selectedMovie) => {
-    // playTrailer(false);
     dispatch(fetchMovie(selectedMovie.id));
     setSelectedMovie(selectedMovie);
-    // dispatch(fetchMovie(selectedMovie.id))
-    //   .then(setSelectedMovie(movie));
-    console.log(selectedMovie);
     window.scrollTo(0, 0);
   }
 
