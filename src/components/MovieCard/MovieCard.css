@@ -1,0 +1,15 @@
+.movie-cover, .movie-placeholder {
+  height: 443px;
+}
+
+.movie-cover {
+  width: 314px;
+  cursor: pointer;
+}
+
+.movie-placeholder {
+  display: flex;
+  background-color: gray;
+  justify-content: center;
+  align-items: center;
+}
