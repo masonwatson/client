@@ -7,7 +7,7 @@ import "./Navbar.css";
 
 function Navbar() {
   const [searchKey, setSearchKey] = useState("");
-  
+
   const dispatch = useDispatch();
 
   const search = (e) => {
