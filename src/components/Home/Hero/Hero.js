@@ -59,21 +59,22 @@ const Hero = ({ selectedMovie }) => {
                 className="button close-button"
                 onClick={() => setPlayTrailer(false)}
               >
-                Close
+                <span>Close</span>
               </button>
             ) : null}
             {movie.videos && playTrailer ? handleRenderTrailer() : null}
             <button
-              className="button"
+              className="button play-button"
               onClick={() => setPlayTrailer(!playTrailer)}
             >
-              Play Trailer
+              <span>Play Trailer</span>
             </button>
             <h1 className="hero-title">{selectedMovie.title}</h1>
             {selectedMovie.overview ? (
               <p className="hero-overview">{selectedMovie.overview}</p>
             ) : null}
           </div>
+          <div className="hero-backdrop" />
         </div>
       ) : null}
     </div>

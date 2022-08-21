@@ -14,12 +14,16 @@ const Home = () => {
   const dispatch = useDispatch();
 
   const [selectedMovie, setSelectedMovie] = useState({});
-  
-  const selectMovie = (selectedMovie) => {
-    dispatch(fetchMovie(selectedMovie.id));
-    setSelectedMovie(selectedMovie);
+
+  const selectMovie = (movie) => {
+    if (movie === selectedMovie) {
+      setSelectedMovie({});
+    } else {
+      dispatch(fetchMovie(movie.id));
+      setSelectedMovie(movie);
+    }
     window.scrollTo(0, 0);
-  }
+  };
 
   useEffect(() => {
     dispatch(fetchMovies());
@@ -28,14 +32,12 @@ const Home = () => {
   return (
     <div className="home-container">
       <Hero selectedMovie={selectedMovie} />
-      <div className="home-content max-center">
-        {movies.map((movie) => (
-          <MovieCard
-            key={movie.id}
-            movie={movie}
-            selectMovie={selectMovie}
-          />
-        ))}
+      <div className="home-content-wrapper">
+        <div className="home-content max-center">
+          {movies.map((movie) => (
+            <MovieCard key={movie.id} movie={movie} selectMovie={selectMovie} />
+          ))}
+        </div>
       </div>
     </div>
   );

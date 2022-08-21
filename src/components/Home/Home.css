@@ -1,6 +1,15 @@
+.home-container {
+  /* background-color: black; */
+  background-color: rgb(16, 16, 16);
+}
+
+.home-content-wrapper {
+  padding-top: 5px;
+  padding-bottom: 35px;
+}
+
 .home-content {
   padding: 15px;
-  background-color: #0F1014;
 
   display: grid;
   gap: 15px;

@@ -1,15 +1,79 @@
-.movie-cover, .movie-placeholder {
-  height: 443px;
+.movie-card {
+  padding-bottom: 17px;
+  cursor: pointer;
 }
 
 .movie-cover {
+  height: 443px;
   width: 314px;
-  cursor: pointer;
+}
+
+.movie-poster {
+  will-change: scale;
+  transition: scale 0.3s;
+}
+
+.movie-poster, .movie-placeholder, .movie-image {
+  height: 100%;
+  width: 100%;
+
+  border-radius: 7px;
+
+  display: flex;
+  position: relative;
+}
+
+.movie-more-info {
+  width: 25%;
+  height: 5%;
+
+  opacity: 0;
+
+  color: white;
+  background-color: rgba(0,0,0, 0.9);
+
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+
+  bottom: 7px;
+  right: 7px;
+
+  border-radius: 5px;
+}
+
+.movie-card:hover .movie-poster {
+  transition-duration: 0.3s;
+  scale: 1.018;
+}
+
+.movie-card:hover .movie-more-info {
+  opacity: 1;
+}
+
+.movie-more-info span {
+  font-family: Roboto-Regular;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+
+.movie-title {
+  width: 100%;
+
+  font-family: Roboto-Light;
+  font-size: 15px;
+  color: white;
+
+  padding-left: 1px;
+  padding-top: 8px;
 }
 
 .movie-placeholder {
   display: flex;
-  background-color: gray;
   justify-content: center;
   align-items: center;
+
+  color: white;
+  background-color: rgb(27, 27, 27);
 }

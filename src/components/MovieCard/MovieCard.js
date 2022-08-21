@@ -2,19 +2,33 @@ import React from "react";
 
 import "./MovieCard.css";
 
-const MovieCard = ({movie, selectMovie}) => {
-
+const MovieCard = ({ movie, selectMovie }) => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500/";
 
-  return(
+  return (
     <div className="movie-card" onClick={() => selectMovie(movie)}>
-      {movie.poster_path ? <img className="movie-cover" src={`${IMAGE_PATH}${movie.poster_path}`} alt="" />
-        : 
-        <div className="movie-placeholder">No Image Found</div>
-      }
-      <h5 className="movie-title">{movie.title}</h5>
+      <div className="movie-cover">
+        {movie.poster_path ? (
+          <div className="movie-poster">
+            <img
+              className="movie-image"
+              src={`${IMAGE_PATH}${movie.poster_path}`}
+              alt=""
+            />
+            <div className="movie-more-info">
+              <span>More Info</span>
+            </div>
+          </div>
+        ) : (
+          <div className="movie-placeholder">No Image Found</div>
+        )}
+        <div></div>
+      </div>
+      <div className="movie-title">
+        <span className="movie-title">{movie.title}</span>
+      </div>
     </div>
   );
-}
+};
 
 export default MovieCard;

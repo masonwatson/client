@@ -1,5 +1,56 @@
+.header-container {
+  height: 56px;
+
+  /* border-bottom: 1px solid rgb(95, 95, 95); */
+
+  background-color: rgb(28, 28, 28);
+  color: white;
+}
+
 .header-content {
+  height: 100%;
+  max-width: 95%;
+
+  margin-left: auto;
+  margin-right: auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.header-logo {
+  font-family: Roboto-Bold;
+}
+
+.header-searchform {
+  height: 40px;
+  border-radius: 0;
+
+  display: flex;
+  flex-direction: row;
+}
+
+.header-searchbar {
+  min-width: 572px;
+  color: white;
+  background-color: rgb(17, 17, 17);
+  border: 1px solid #181818;
+}
+
+.header-searchbar:focus {
+  outline: none;
+  border: 1px solid #065fd4;
+}
+
+.header-button {
+  width: 64px;
+  border: 1px solid transparent;
+
+  color: white;
+  background-color: #2F2F2F;
+}
+
+.header-user-image {
+  font-family: Roboto-Bold;
 }
