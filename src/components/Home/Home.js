@@ -13,25 +13,39 @@ const Home = () => {
   const movies = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
+  const [heroExpanded, setHeroExpanded] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
 
-  const selectMovie = (movie) => {
-    if (movie === selectedMovie) {
-      setSelectedMovie({});
+  // const clearMovieSelection = () => {
+  //   setSelectedMovie({});
+  // };
+
+  const handleMovieSelection = (movie) => {
+    if (movie === selectedMovie && heroExpanded) {
+      setHeroExpanded(false);
+      // setTimeout(() => {
+      //   clearMovieSelection();
+      // }, 0.5 * 1000);
     } else {
       dispatch(fetchMovie(movie.id));
       setSelectedMovie(movie);
+      setHeroExpanded(true);
     }
+  }
+
+  const selectMovie = (movie) => {
+    handleMovieSelection(movie);
     window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     dispatch(fetchMovies());
+    // setHeroExpanded(false);
   }, [dispatch]);
 
   return (
     <div className="home-container">
-      <Hero selectedMovie={selectedMovie} />
+      <Hero selectedMovie={selectedMovie} heroExpanded={heroExpanded}/>
       <div className="home-content-wrapper">
         <div className="home-content max-center">
           {movies.map((movie) => (

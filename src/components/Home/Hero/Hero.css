@@ -1,12 +1,25 @@
 .hero-container {
   position: relative;
-  min-height: 700px;
   background-position: center;
   background-size: cover;
+  height: 100%;
 
   display: flex;
   align-items: flex-end;
   position: relative;
+}
+
+.hero-closed, .hero-expanded {
+  will-change: height;
+  transition: height 0.5s;
+}
+
+.hero-closed {
+  height: 0px;
+}
+
+.hero-expanded {
+  height: 700px;
 }
 
 .hero-content {
@@ -16,6 +29,19 @@
   margin-right: auto;
 
   z-index: 1;
+
+  transition-property: opacity;
+}
+
+.hero-content.invisible {
+  transition-duration: 0.1s; 
+  opacity: 0;
+}
+
+.hero-content.visible {
+  transition-delay: 0.2s;
+  transition-duration: 0.8s; 
+  opacity: 1;
 }
 
 .hero-title {
@@ -66,15 +92,31 @@
 
 .hero-backdrop {
   width: 100%;
-  height: 45%;
+  height: 57%;
   bottom: 0;
 
   background: linear-gradient(
     to top,
-    rgba(0, 0, 0, 0.5) 0%,
-    rgba(7, 7, 7, 0.3) 80%,
-    rgba(14, 14, 14, 0.2) 90%,
-    rgba(21, 21, 21, 00) 100%
+    rgba(0, 0, 0, 0.82) 0%,
+    rgba(0, 0, 0, 0.75) 10%,
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 0.45) 70%,
+    rgba(0, 0, 0, 0.0) 100%
   );
+
   position: absolute;
+
+  transition-property: opacity;
+}
+
+.hero-backdrop.invisible {
+  transition-delay: 0.2s;
+  transition-duration: 0.5s;
+  opacity: 0;
+}
+
+.hero-backdrop.visible {
+  transition-delay: 0.3s;
+  transition-duration: 1.5s;
+  opacity: 1;
 }

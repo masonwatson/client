@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 
 import "./Hero.css";
 
-const Hero = ({ selectedMovie }) => {
+const Hero = ({ selectedMovie, heroExpanded }) => {
   const movie = useSelector((state) => state.movie);
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280/";
 
@@ -42,18 +42,18 @@ const Hero = ({ selectedMovie }) => {
 
   useEffect(() => {
     setPlayTrailer(false);
-  }, [selectedMovie]);
+  }, [selectedMovie, heroExpanded]);
 
   return (
-    <div>
-      {selectedMovie.id ? (
+    <div className={`${heroExpanded ? "hero-expanded" : "hero-closed"}`}>
+      {/* {selectedMovie.id ? ( */}
         <div
           className="hero-container"
           style={{
-            backgroundImage: `url(${IMAGE_PATH}${selectedMovie.backdrop_path})`,
+            backgroundImage: `${selectedMovie.id ? `url(${IMAGE_PATH}${selectedMovie.backdrop_path})` : ''}`,
           }}
         >
-          <div className="hero-content">
+          <div className={`hero-content ${heroExpanded ? "visible" : "invisible"}`}>
             {playTrailer && trailerAvailable ? (
               <button
                 className="button close-button"
@@ -74,9 +74,9 @@ const Hero = ({ selectedMovie }) => {
               <p className="hero-overview">{selectedMovie.overview}</p>
             ) : null}
           </div>
-          <div className="hero-backdrop" />
+          <div className={`hero-backdrop ${heroExpanded ? "visible" : "invisible"}`} />
         </div>
-      ) : null}
+      {/* ) : null} */}
     </div>
   );
 };
