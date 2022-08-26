@@ -1,30 +1,105 @@
 .header-container {
-  height: 56px;
+  height: var(--navbar-height);
 
-  /* border-bottom: 1px solid rgb(95, 95, 95); */
-
-  background-color: rgb(28, 28, 28);
+  background-color: rgba(28, 28, 28, 0.98);
   color: white;
+
+  position: fixed;
+  z-index: 2;
+
+  width: 100%;
 }
 
 .header-content {
   height: 100%;
-  max-width: 95%;
+  max-width: 100%;
 
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 30px;
+  margin-right: 30px;
 
   display: flex;
+  flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
+.header-start {
+  width: 170px;
+  height: 40px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header-logo, .mobile-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  
+  justify-content: flex-start;
+}
+
 .header-logo {
+  width: 70%;
+
   font-family: Roboto-Bold;
+  font-size: 22px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  line-height: 40px;
+
+  color: #ed213a;
+  background: -webkit-linear-gradient(to bottom, #93291e, #ed213a);
+  background: linear-gradient(to bottom, #93291e,  #ed213a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.mobile-nav {
+  width: 30%;
+  height: 20px;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
+  
+  cursor: pointer;
+}
+
+.mobile-nav-inner {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+  position: relative;
+}
+
+.mobile-nav-inner::before,
+.mobile-nav-inner::after {
+  content: '';
+  display: block;
+}
+
+.mobile-nav-inner,
+.mobile-nav-inner::before,
+.mobile-nav-inner::after {
+  position: absolute;
+  width: 23px;
+  height: 1.5px;
+  background-color: #f2f2f2;
+  border-radius: 2px;
+}
+
+.mobile-nav-inner::before {
+  top: -7px;
+}
+
+.mobile-nav-inner::after {
+  bottom: -7px;
 }
 
 .header-searchform {
-  height: 40px;
+  height: 38px;
   border-radius: 0;
 
   display: flex;
@@ -33,9 +108,14 @@
 
 .header-searchbar {
   min-width: 572px;
+
   color: white;
   background-color: rgb(17, 17, 17);
   border: 1px solid #181818;
+
+  font-family: Roboto-Regular;
+  font-size: 14px;
+  text-indent: 8px;
 }
 
 .header-searchbar:focus {
@@ -49,6 +129,8 @@
 
   color: white;
   background-color: #2F2F2F;
+
+  cursor: pointer;
 }
 
 .header-user-image {

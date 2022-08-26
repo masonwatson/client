@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { animateScroll as scroll } from "react-scroll";
 
 import { fetchMovies } from "../../actions/movies";
 import { fetchMovie } from "../../actions/movie";
@@ -16,31 +17,27 @@ const Home = () => {
   const [heroExpanded, setHeroExpanded] = useState(false);
   const [selectedMovie, setSelectedMovie] = useState({});
 
-  // const clearMovieSelection = () => {
-  //   setSelectedMovie({});
-  // };
+  const closeHero = () => {
+    setHeroExpanded(false);
+  };
 
   const handleMovieSelection = (movie) => {
     if (movie === selectedMovie && heroExpanded) {
-      setHeroExpanded(false);
-      // setTimeout(() => {
-      //   clearMovieSelection();
-      // }, 0.5 * 1000);
+      closeHero();
     } else {
       dispatch(fetchMovie(movie.id));
       setSelectedMovie(movie);
       setHeroExpanded(true);
+      scroll.scrollToTop({duration: 400, smooth: true});
     }
   }
 
   const selectMovie = (movie) => {
     handleMovieSelection(movie);
-    window.scrollTo(0, 0);
   };
 
   useEffect(() => {
     dispatch(fetchMovies());
-    // setHeroExpanded(false);
   }, [dispatch]);
 
   return (
