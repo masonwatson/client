@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faCircleUser } from "@fortawesome/free-solid-svg-icons";
 
 import { fetchMovies } from "../../actions/movies";
 
@@ -38,7 +38,9 @@ function Navbar({handleVertNavExpansion, handleActiveRoute}) {
             <FontAwesomeIcon icon={faMagnifyingGlass} size="lg" />
           </button>
         </form>
-        <span className="header-user-image">image</span>
+        <div className="header-user-image">
+          <FontAwesomeIcon icon={faCircleUser} size="xl" />
+        </div>
       </div>
     </header>
   );

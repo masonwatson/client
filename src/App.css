@@ -15,7 +15,7 @@
 
 .vertical-navbar-wrapper {
   position: fixed;
-  z-index: 1;
+  z-index: 3;
 }
 
 .home-container-wrapper.expanded {

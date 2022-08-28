@@ -5,7 +5,7 @@
   color: white;
 
   position: fixed;
-  z-index: 2;
+  z-index: 4;
 
   width: 100%;
 }
@@ -45,6 +45,7 @@
 
   font-family: Roboto-Bold;
   font-size: 22px;
+
   letter-spacing: 0.05em;
   text-transform: uppercase;
   line-height: 40px;

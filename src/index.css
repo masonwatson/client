@@ -1,6 +1,8 @@
 :root {
-  --navbar-height: 58px;
-  --expanded-vertical-nav-width: 230px;
+  /* --navbar-height: 58px; */
+  --navbar-height: 65px;
+  --carousel-height: 70px;
+  --expanded-vertical-nav-width: 240px;
   --collapsed-vertical-nav-width: 86px;
 }
 

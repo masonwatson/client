@@ -9,8 +9,8 @@ import "./App.css";
 
 const App = () => {
   const [activeRoute, setActiveRoute] = useState("Home");
-  const [vertNavActive, setVertNavActive] = useState(false);
-  const [vertNavExpanded, setVertNavExpanded] = useState(false);
+  const [vertNavActive, setVertNavActive] = useState(true);
+  const [vertNavExpanded, setVertNavExpanded] = useState(true);
 
   const handleVertNavExpansion = () => {
     setVertNavExpanded(!vertNavExpanded);
@@ -21,8 +21,8 @@ const App = () => {
   };
 
   useEffect(() => {
-    setVertNavActive(true);
-    setVertNavExpanded(true);
+    // setVertNavActive(true);
+    // setVertNavExpanded(true);
   }, []);
 
   return (

@@ -1,0 +1,35 @@
+.genre-card {
+  padding-top: 7px;
+  padding-left: 15px;
+  padding-bottom: 7px;
+  padding-right: 15px;
+  margin: 10px;
+
+  background-color: rgba(54, 54, 54, 0.9);
+  border: 1px solid rgb(80, 79, 79);
+  border-radius: 1em;
+
+  display: flex;
+  flex-shrink: 0;
+
+  cursor: pointer;
+}
+
+.genre-card.inactive:hover {
+  background-color: rgba(71, 71, 71, 0.9);
+}
+
+.genre-card.active {
+  background-color: rgb(248, 248, 248);
+  border: 1px solid rgb(248, 248, 248);
+}
+
+.genre-name {
+  font-family: Roboto-Regular;
+  font-size: 15px;
+  color: white;
+}
+
+.genre-card.active .genre-name span {
+  color: rgb(29, 29, 29);
+}

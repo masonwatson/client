@@ -2,7 +2,7 @@ import React from "react";
 
 import "./MovieCard.css";
 
-const MovieCard = ({ movie, selectMovie }) => {
+const MovieCard = ({ movie, selectMovie, selectedMovie }) => {
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w500/";
 
   return (

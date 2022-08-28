@@ -29,7 +29,6 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
     } else if (playMovie) {
       return renderMovie();
     }
-    
   };
 
   const renderMovie = () => {
