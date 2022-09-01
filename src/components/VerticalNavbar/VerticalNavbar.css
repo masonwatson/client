@@ -8,6 +8,12 @@
   overflow: hidden;
 }
 
+@media only screen and (max-width: 1339px) {
+  .vertical-navbar-container {
+    display: none;
+  }
+}
+
 .vertical-navbar-content {
   display: flex;
   flex-direction: column;
@@ -107,7 +113,6 @@
 
   transition-property: width opacity;
 }
-
 
 .v-li-wrapper .li-bar-wrapper .li-bar.active {
   opacity: 1;

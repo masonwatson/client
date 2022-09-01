@@ -13,7 +13,7 @@ import MovieCard from "../MovieCard/MovieCard";
 
 import "./Home.css";
 
-const Home = () => {
+const Home = ({vertNavExpanded}) => {
   const movies = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
@@ -68,7 +68,7 @@ const Home = () => {
   }, [dispatch, selectedGenre, homeInitialized]);
 
   return (
-    <div className="home-container">
+    <div className={`home-container ${vertNavExpanded ? "expanded" : "contracted"}`}>
       <Carousel setSelectedGenre={setSelectedGenre} selectedGenre={selectedGenre}/>
       <Hero selectedMovie={selectedMovie} heroExpanded={heroExpanded} />
       <div className="home-content-wrapper">

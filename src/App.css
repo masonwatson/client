@@ -1,4 +1,4 @@
-.main-view-wrapper {
+/* .main-view-wrapper {
   width: 100%;
   height: 100%;
 
@@ -6,19 +6,21 @@
   flex-direction: row;
   justify-content: flex-end;
   flex-wrap: nowrap;
-}
-
-.vertical-navbar-wrapper,
-.vertical-navbar-placeholder {
-  height: 100vh;
-}
+} */
 
 .vertical-navbar-wrapper {
+  height: 100vh;
+
   position: fixed;
   z-index: 3;
 }
 
-.home-container-wrapper.expanded {
+/* .vertical-navbar-wrapper {
+  position: fixed;
+  z-index: 3;
+} */
+
+/* .home-container-wrapper.expanded {
   width: calc(100vw - var(--expanded-vertical-nav-width));
 }
 
@@ -39,6 +41,37 @@
 .vertical-navbar-wrapper,
 .vertical-navbar-placeholder,
 .home-container-wrapper {
+  transition-property: width;
+  transition-duration: 0.4s;
+} */
+
+/* .home-container-wrapper.expanded {
+  width: calc(100vw - var(--expanded-vertical-nav-width));
+}
+
+.home-container-wrapper.collapsed {
+  width: calc(100vw - var(--collapsed-vertical-nav-width));
+} */
+
+.home-container-wrapper {
+  width: 100%;
+}
+
+.vertical-navbar-wrapper.expanded {
+  width: var(--expanded-vertical-nav-width);
+}
+
+.vertical-navbar-wrapper.collapsed {
+  width: var(--minimized-vertical-nav-width);
+}
+
+/* .vertical-navbar-wrapper,
+.home-container-wrapper {
+  transition-property: width;
+  transition-duration: 0.4s;
+} */
+
+.vertical-navbar-wrapper {
   transition-property: width;
   transition-duration: 0.4s;
 }

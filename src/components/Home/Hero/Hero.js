@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import YouTube from "react-youtube";
 import { useSelector } from "react-redux";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlay } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlay, faCommentDots } from "@fortawesome/free-solid-svg-icons";
+import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 import "./Hero.css";
 
@@ -45,7 +46,7 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
         }}
       />
     );
-  }
+  };
 
   const renderTrailer = (trailer) => {
     return (
@@ -69,7 +70,7 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
     } else if (playTrailer === true) {
       setPlayTrailer(false);
     }
-  }
+  };
 
   useEffect(() => {
     setPlayTrailer(false);
@@ -99,20 +100,37 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
               <span>Close</span>
             </button>
           ) : null}
-          {(movie.videos && playTrailer) || playMovie ? handleRenderVideo() : null}
-          <div>
-            <button
-              className="button play-button"
-              onClick={() => setPlayMovie(true)}
-            >
-              <FontAwesomeIcon icon={faCirclePlay} size="lg" />
-            </button>
-            <button
-              className="button play-button"
-              onClick={() => setPlayTrailer(true)}
-            >
-              <span>Play Trailer</span>
-            </button>
+          {(movie.videos && playTrailer) || playMovie
+            ? handleRenderVideo()
+            : null}
+          <div className="button-container">
+            <div className="button">
+              <button
+                className="play-button"
+                onClick={() => setPlayMovie(true)}
+              >
+                <FontAwesomeIcon icon={faCirclePlay} size="lg" />
+                <span>Play Movie</span>
+              </button>
+            </div>
+            <div className="button">
+              <button
+                className="play-button"
+                onClick={() => setPlayTrailer(true)}
+              >
+                <FontAwesomeIcon icon={faYoutube} size="lg" />
+                <span>Play Trailer</span>
+              </button>
+            </div>
+            <div className="button">
+              <button
+                className="comment-button"
+                onClick={() => setPlayTrailer(true)}
+              >
+                <FontAwesomeIcon icon={faCommentDots} size="lg" />
+                <span>Socialize</span>
+              </button>
+            </div>
           </div>
           <h1 className="hero-title">{selectedMovie.title}</h1>
           {selectedMovie.overview ? (

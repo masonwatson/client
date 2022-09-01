@@ -14,7 +14,7 @@ function Navbar({handleVertNavExpansion, handleActiveRoute}) {
 
   const search = (e) => {
     e.preventDefault();
-    handleActiveRoute("");
+    handleActiveRoute(null);
     dispatch(fetchMovies(searchKey));
   };
 

@@ -1,6 +1,24 @@
 .home-container {
   padding-top: var(--navbar-height);
   background-color: rgb(15, 16, 16);
+
+  transition-property: margin-left;
+  transition-duration: 0.4s;
+}
+
+.home-container.expanded {
+  margin-left: var(--expanded-vertical-nav-width);
+}
+
+.home-container.contracted {
+  margin-left: var(--minimized-vertical-nav-width);
+}
+
+@media only screen and (max-width: 1339px) {
+  .home-container {
+    transition: 0.0s !important;
+    margin-left: 0px !important;
+  }
 }
 
 .home-content-wrapper {
@@ -10,11 +28,17 @@
 
 .home-content {
   max-width: 1550px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: auto;
   padding: 15px;
 
-  display: flex;
+  /* width: 100%; */
+
+  /* display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+ 
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(314px, 1fr));
+  grid-gap: 1rem;
+  grid-auto-flow: dense;
 }

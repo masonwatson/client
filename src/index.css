@@ -3,7 +3,9 @@
   --navbar-height: 65px;
   --carousel-height: 70px;
   --expanded-vertical-nav-width: 240px;
-  --collapsed-vertical-nav-width: 86px;
+  --minimized-vertical-nav-width: 86px;
+  --collapsed-vertical-nav-width: 0px;
+  --navbar-collapse-screen-width: 1339px;
 }
 
 body {

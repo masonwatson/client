@@ -20,10 +20,7 @@ const App = () => {
     setActiveRoute(active);
   };
 
-  useEffect(() => {
-    // setVertNavActive(true);
-    // setVertNavExpanded(true);
-  }, []);
+  useEffect(() => {}, []);
 
   return (
     <div className="App">
@@ -44,18 +41,12 @@ const App = () => {
           />
         </div>
         <div className="main-view-wrapper">
-          <div
-            className={`vertical-navbar-placeholder ${
-              vertNavExpanded ? "expanded" : "collapsed"
-            }`}
-          />
-          <div
-            className={`home-container-wrapper ${
-              vertNavExpanded ? "expanded" : "collapsed"
-            }`}
-          >
+          <div className="home-container-wrapper">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route
+                path="/"
+                element={<Home vertNavExpanded={vertNavExpanded} />}
+              />
             </Routes>
           </div>
         </div>
