@@ -8,12 +8,6 @@
   overflow: hidden;
 }
 
-@media only screen and (max-width: 1339px) {
-  .vertical-navbar-container {
-    display: none;
-  }
-}
-
 .vertical-navbar-content {
   display: flex;
   flex-direction: column;
@@ -153,13 +147,13 @@
   padding-right: 1px;
 }
 
-.vertical-navbar-content .vertical-navbar-links .box.collapsed {
+.vertical-navbar-content .vertical-navbar-links .box.minimized {
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
 }
 
-.vertical-navbar-content .vertical-navbar-links .box.collapsed .vnl-icon {
+.vertical-navbar-content .vertical-navbar-links .box.minimized .vnl-icon {
   min-width: 100%;
   padding-top: 27px;
 }

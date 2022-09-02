@@ -5,9 +5,14 @@ import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar/Navbar";
 import VerticalNavbar from "./components/VerticalNavbar/VerticalNavbar";
 
+import useWindowSize from "./hooks/useWindowDimensions";
+
 import "./App.css";
 
 const App = () => {
+  const size = useWindowSize();
+
+  const [search, setSearch] = useState("");
   const [activeRoute, setActiveRoute] = useState("Home");
   const [vertNavActive, setVertNavActive] = useState(true);
   const [vertNavExpanded, setVertNavExpanded] = useState(true);
@@ -20,7 +25,14 @@ const App = () => {
     setActiveRoute(active);
   };
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    if (size.width > 1339) {
+      setVertNavActive(true);
+    } else {
+      setVertNavActive(false);
+      setVertNavExpanded(false);
+    }
+  }, [size]);
 
   return (
     <div className="App">
@@ -28,27 +40,45 @@ const App = () => {
         <Navbar
           handleVertNavExpansion={handleVertNavExpansion}
           handleActiveRoute={handleActiveRoute}
+          setSearch={setSearch}
         />
         <div
           className={`vertical-navbar-wrapper ${
-            vertNavExpanded ? "expanded" : "collapsed"
+            vertNavActive
+              ? vertNavExpanded
+                ? "expanded"
+                : "minimized"
+              : vertNavExpanded
+              ? "expanded"
+              : "collapsed"
           }`}
         >
           <VerticalNavbar
             vertNavExpanded={vertNavExpanded}
             handleActiveRoute={handleActiveRoute}
             activeRoute={activeRoute}
+            vertNavActive={vertNavActive}
           />
         </div>
-        <div className="main-view-wrapper">
-          <div className="home-container-wrapper">
-            <Routes>
-              <Route
-                path="/"
-                element={<Home vertNavExpanded={vertNavExpanded} />}
-              />
-            </Routes>
-          </div>
+        <div className="home-container-wrapper">
+          {!vertNavActive && vertNavExpanded ? (
+            <div
+              className="home-container-layer"
+              onClick={() => setVertNavExpanded(false)}
+            />
+          ) : null}
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <Home
+                  vertNavExpanded={vertNavExpanded}
+                  vertNavActive={vertNavActive}
+                  search={search}
+                />
+              }
+            />
+          </Routes>
         </div>
       </Router>
     </div>

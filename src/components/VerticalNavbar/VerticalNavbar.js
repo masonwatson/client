@@ -16,7 +16,7 @@ import { Link } from "react-router-dom";
 
 import "./VerticalNavbar.css";
 
-function VerticalNavbar({ vertNavExpanded, handleActiveRoute, activeRoute }) {
+function VerticalNavbar({ vertNavExpanded, handleActiveRoute, activeRoute, vertNavActive }) {
   return (
     <div className="vertical-navbar-container">
       <div className="vertical-navbar-content">
@@ -153,7 +153,7 @@ function VerticalNavbar({ vertNavExpanded, handleActiveRoute, activeRoute }) {
           </Link>
         </ul>
         <div className="vertical-navbar-links">
-          <div className={`box ${vertNavExpanded ? "expanded" : "collapsed"}`}>
+          <div className={`box ${vertNavExpanded ? "expanded" : "minimized"}`}>
             <a className="vnl-icon" href="https://github.com/masonwatson/letterboxd-clone" target="_blank" rel="noreferrer">
               <FontAwesomeIcon icon={faGithub} size="xl" />
             </a>

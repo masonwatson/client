@@ -14,19 +14,16 @@ export const fetchMovies = (searchParameters) => {
           : "discover";
           
       if (type === "search" && typeof searchParameters === "string") {
-        console.log("Searched-for Movies");
           const {
             data: { results },
           } = await api.fetchMovies(type, searchParameters, null);
           return onSuccess(results);
       } else if (type === "discover" && searchParameters) {
-        console.log("Genre Specific Movies");
           const {
             data: { results },
           } = await api.fetchMovies(type, null, searchParameters);
           return onSuccess(results);
       } else {
-        console.log("All Movies");
         const {
           data: { results },
         } = await api.fetchMovies(type);

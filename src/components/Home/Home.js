@@ -13,7 +13,7 @@ import MovieCard from "../MovieCard/MovieCard";
 
 import "./Home.css";
 
-const Home = ({vertNavExpanded}) => {
+const Home = ({ vertNavExpanded, vertNavActive, search}) => {
   const movies = useSelector((state) => state.movies);
   const dispatch = useDispatch();
 
@@ -27,11 +27,10 @@ const Home = ({vertNavExpanded}) => {
   };
 
   const handleMovieSelection = async(movie) => {
-    if (movie === selectedMovie && heroExpanded) {
+    if (movie.original_title === selectedMovie.original_title && heroExpanded) {
       closeHero();
     } else {
       const results = await dispatch(fetchMovie(movie.id));
-      console.log(results);
       setSelectedMovie(results);
       setHeroExpanded(true);
       scroll.scrollToTop({ duration: 400, smooth: true });
@@ -53,6 +52,11 @@ const Home = ({vertNavExpanded}) => {
       setHomeInitialized(true);
     };
 
+    if (!homeInitialized) renderHome();
+
+  }, [dispatch, homeInitialized]);
+
+  useEffect(() => {
     const renderGenreCondition = async() => {
       const results = await dispatch(fetchMovies(selectedGenre.id));
       const movie = await dispatch(fetchMovie(results[0].id));
@@ -60,17 +64,29 @@ const Home = ({vertNavExpanded}) => {
       setHeroExpanded(true);
     }
 
-    if (!homeInitialized) {
-      renderHome();
-    } else {
-      renderGenreCondition();
+    console.log("genre rerender");
+    renderGenreCondition();
+  }, [dispatch, selectedGenre]);
+
+  useEffect(() => {
+    setHeroExpanded(false);
+  }, [dispatch, search]);
+
+  useEffect(() => {
+    const renderGenreCondition = async() => {
+      const results = await dispatch(fetchMovies(selectedGenre.id));
+      const movie = await dispatch(fetchMovie(results[0].id));
+      setSelectedMovie(movie);
+      setHeroExpanded(true);
     }
-  }, [dispatch, selectedGenre, homeInitialized]);
+
+    renderGenreCondition();
+  }, [dispatch, selectedGenre]);
 
   return (
-    <div className={`home-container ${vertNavExpanded ? "expanded" : "contracted"}`}>
+    <div className={`home-container ${vertNavActive ? (vertNavExpanded ? "expanded" : "minimized") : "collapsed"}`}>
       <Carousel setSelectedGenre={setSelectedGenre} selectedGenre={selectedGenre}/>
-      <Hero selectedMovie={selectedMovie} heroExpanded={heroExpanded} />
+      <Hero selectedMovie={selectedMovie} heroExpanded={heroExpanded} closeHero={closeHero}/>
       <div className="home-content-wrapper">
         <div className="home-content max-center">
           {movies.map((movie) => (

@@ -11,6 +11,79 @@
   margin-top: var(--carousel-height);
 }
 
+
+.close-hero-button {
+  right: 18px;
+
+  position: absolute;
+
+  transition-duration: 0.3s;
+}
+
+.close-hero-button.details {
+  top: 18px;
+}
+
+.close-hero-button.video {
+  top: 70px;
+
+  opacity: 0;
+  z-index: 5;
+}
+
+.hero-container:hover .close-hero-button.video {
+  opacity: 1;
+}
+
+.close-hero-button .button {
+  width: 44px;
+  height: 44px;
+  
+  
+  border-radius: 2em;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  cursor: pointer;
+}
+
+.close-hero-button.details .button {
+  background-color: rgb(29, 29, 29);
+  border: 1px solid rgba(237, 232, 232, 0.3);
+  /* border: 1px solid rgba(0, 0, 0, 0.3); */
+}
+
+.close-hero-button.video .button {
+  background-color: rgb(227, 224, 224);
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  /* border: 1px solid rgba(222, 222, 222, 0.3); */
+}
+
+.close-hero-button .button:before, .close-hero-button .button:after {
+  position: absolute;
+  content: ' ';
+  height: 20px;
+  width: 2px;
+}
+
+.close-hero-button.details .button:before, .close-hero-button.details .button:after {
+  background-color: rgba(255, 255, 255, 0.98);
+}
+
+.close-hero-button.video .button:before, .close-hero-button.video .button:after {
+  background-color: rgba(0, 0, 0, 0.98);
+}
+
+.close-hero-button .button:before {
+  transform: rotate(45deg);
+}
+
+.close-hero-button .button:after {
+  transform: rotate(-45deg);
+}
+
 .hero-closed,
 .hero-expanded {
   will-change: height;

@@ -7,7 +7,7 @@ import { fetchMovies } from "../../actions/movies";
 
 import "./Navbar.css";
 
-function Navbar({handleVertNavExpansion, handleActiveRoute}) {
+function Navbar({ handleVertNavExpansion, handleActiveRoute, setSearch }) {
   const [searchKey, setSearchKey] = useState("");
 
   const dispatch = useDispatch();
@@ -16,6 +16,7 @@ function Navbar({handleVertNavExpansion, handleActiveRoute}) {
     e.preventDefault();
     handleActiveRoute(null);
     dispatch(fetchMovies(searchKey));
+    setSearch(searchKey);
   };
 
   return (

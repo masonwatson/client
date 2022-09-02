@@ -7,7 +7,7 @@ import { faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 import "./Hero.css";
 
-const Hero = ({ selectedMovie, heroExpanded }) => {
+const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
   const movie = useSelector((state) => state.movie);
   const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280/";
 
@@ -92,6 +92,9 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
         <div
           className={`hero-content ${heroExpanded ? "visible" : "invisible"}`}
         >
+          {/* {heroExpanded ? (
+            <div className="close-hero-button"><button className="button" onClick={() => closeHero()} /></div>
+          ) : null}
           {(playTrailer && trailerAvailable) || playMovie ? (
             <button
               className="button close-button"
@@ -99,6 +102,24 @@ const Hero = ({ selectedMovie, heroExpanded }) => {
             >
               <span>Close</span>
             </button>
+          ) : null} */}
+          {heroExpanded ? (
+            <div
+              className={`close-hero-button ${
+                (playTrailer && trailerAvailable) || playMovie
+                  ? "video"
+                  : "details"
+              }`}
+            >
+              <button
+                className="button"
+                onClick={() => {
+                  (playTrailer && trailerAvailable) || playMovie
+                    ? handleCloseButton()
+                    : closeHero();
+                }}
+              />
+            </div>
           ) : null}
           {(movie.videos && playTrailer) || playMovie
             ? handleRenderVideo()

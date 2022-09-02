@@ -10,8 +10,12 @@
   margin-left: var(--expanded-vertical-nav-width);
 }
 
-.home-container.contracted {
+.home-container.minimized {
   margin-left: var(--minimized-vertical-nav-width);
+}
+
+.home-container.collapsed {
+  margin-left: var(--collapsed-vertical-nav-width);
 }
 
 @media only screen and (max-width: 1339px) {
