@@ -1,8 +1,9 @@
 .hero-container {
   position: relative;
+  height: 100%;
+
   background-position: center;
   background-size: cover;
-  height: 100%;
 
   display: flex;
   align-items: flex-end;
@@ -10,7 +11,6 @@
 
   margin-top: var(--carousel-height);
 }
-
 
 .close-hero-button {
   right: 18px;
@@ -38,41 +38,41 @@
 .close-hero-button .button {
   width: 44px;
   height: 44px;
-  
-  
+
   border-radius: 2em;
 
   display: flex;
   justify-content: center;
   align-items: center;
-  
+
   cursor: pointer;
 }
 
 .close-hero-button.details .button {
   background-color: rgb(29, 29, 29);
   border: 1px solid rgba(237, 232, 232, 0.3);
-  /* border: 1px solid rgba(0, 0, 0, 0.3); */
 }
 
 .close-hero-button.video .button {
   background-color: rgb(227, 224, 224);
   border: 1px solid rgba(0, 0, 0, 0.3);
-  /* border: 1px solid rgba(222, 222, 222, 0.3); */
 }
 
-.close-hero-button .button:before, .close-hero-button .button:after {
+.close-hero-button .button:before,
+.close-hero-button .button:after {
   position: absolute;
-  content: ' ';
+  content: " ";
   height: 20px;
   width: 2px;
 }
 
-.close-hero-button.details .button:before, .close-hero-button.details .button:after {
+.close-hero-button.details .button:before,
+.close-hero-button.details .button:after {
   background-color: rgba(255, 255, 255, 0.98);
 }
 
-.close-hero-button.video .button:before, .close-hero-button.video .button:after {
+.close-hero-button.video .button:before,
+.close-hero-button.video .button:after {
   background-color: rgba(0, 0, 0, 0.98);
 }
 
@@ -126,13 +126,20 @@
 
 .hero-title {
   font-family: Roboto-Bold;
-  font-size: 72px;
   margin: 0;
 }
 
 .hero-overview {
   font-family: Roboto-Regular;
-  font-size: 17px;
+}
+
+.hero-genres {
+  font-family: Roboto-Thin;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.hero-genres .hero-genre-name:not(:last-child)::after {
+  content: ', ';
 }
 
 .button-container {
@@ -145,7 +152,6 @@
 }
 
 .button-container .button {
-  /* padding-right: 12px; */
   padding: 0px 17px;
 }
 
@@ -183,7 +189,6 @@
 .button-container .button .play-button span,
 .button-container .button .comment-button span {
   font-family: Roboto-Medium;
-  font-size: 14px;
 }
 
 .youtube-container {
@@ -202,7 +207,8 @@
 }
 
 .hero-title,
-.hero-overview {
+.hero-overview,
+.hero-genre-name {
   color: white;
 }
 
@@ -235,4 +241,126 @@
   transition-delay: 0.3s;
   transition-duration: 1.5s;
   opacity: 1;
+}
+
+@media only screen and (min-width: 1200px) {
+  .hero-title {
+    font-size: 72px;
+  }
+
+  .hero-overview {
+    font-size: 17px;
+  }
+
+  .hero-genres{
+    font-size: 14px;
+  }
+
+  .button-container .button .play-button span,
+  .button-container .button .comment-button span {
+    font-family: Roboto-Medium;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 992px) and (max-width: 1199px) {
+  .hero-title {
+    font-size: 60px;
+  }
+
+  .hero-overview {
+    font-size: 16px;
+  }
+
+  .hero-genres{
+    font-size: 13px;
+  }
+
+  .button-container .button .play-button span,
+  .button-container .button .comment-button span {
+    font-family: Roboto-Medium;
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .hero-title {
+    font-size: 48px;
+  }
+
+  .hero-overview {
+    font-size: 15px;
+  }
+
+  .hero-genres{
+    font-size: 12px;
+  }
+
+  .button-container .button .play-button span,
+  .button-container .button .comment-button span {
+    font-family: Roboto-Medium;
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 576px) and (max-width: 767px) {
+  .hero-title {
+    font-size: 36px;
+  }
+
+  .hero-overview {
+    font-size: 14px;
+  }
+
+  .hero-genres{
+    font-size: 11px;
+  }
+
+  .button-container {
+    flex-direction: column;
+
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
+  .button-container .button {
+    padding: 5px 0px;
+  }
+
+  .button-container .button .play-button span,
+  .button-container .button .comment-button span {
+    font-family: Roboto-Medium;
+    font-size: 11px;
+  }
+}
+
+@media only screen and (max-width: 575px) {
+  .hero-title {
+    font-size: 24px;
+  }
+
+  .hero-overview {
+    font-size: 13px;
+  }
+
+  .hero-genres{
+    font-size: 11px;
+  }
+
+  .button-container {
+    flex-direction: column;
+
+    padding-bottom: 12px;
+    margin-bottom: 10px;
+  }
+
+  .button-container .button {
+    padding: 5px 0px;
+  }
+
+  .button-container .button .play-button span,
+  .button-container .button .comment-button span {
+    font-family: Roboto-Medium;
+    font-size: 10px;
+  }
 }

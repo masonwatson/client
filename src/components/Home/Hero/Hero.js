@@ -9,7 +9,7 @@ import "./Hero.css";
 
 const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
   const movie = useSelector((state) => state.movie);
-  const IMAGE_PATH = "https://image.tmdb.org/t/p/w1280/";
+  const IMAGE_PATH = "https://image.tmdb.org/t/p/original/";
 
   const [playMovie, setPlayMovie] = useState(false);
   const [playTrailer, setPlayTrailer] = useState(false);
@@ -72,6 +72,10 @@ const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
     }
   };
 
+  // const getSelectedMovieGenres = (genre) => {
+  //   return genre.name;
+  // };
+
   useEffect(() => {
     setPlayTrailer(false);
     setPlayMovie(false);
@@ -92,17 +96,6 @@ const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
         <div
           className={`hero-content ${heroExpanded ? "visible" : "invisible"}`}
         >
-          {/* {heroExpanded ? (
-            <div className="close-hero-button"><button className="button" onClick={() => closeHero()} /></div>
-          ) : null}
-          {(playTrailer && trailerAvailable) || playMovie ? (
-            <button
-              className="button close-button"
-              onClick={() => handleCloseButton()}
-            >
-              <span>Close</span>
-            </button>
-          ) : null} */}
           {heroExpanded ? (
             <div
               className={`close-hero-button ${
@@ -157,6 +150,14 @@ const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
           {selectedMovie.overview ? (
             <p className="hero-overview">{selectedMovie.overview}</p>
           ) : null}
+          {selectedMovie.genres ? (
+            <span className="hero-genres">
+              Genres:&nbsp;
+              {selectedMovie.genres.map((genre) =>
+                <span className="hero-genre-name">{genre.name}</span>
+              )}
+            </span>
+          ) : null}
         </div>
         <div
           className={`hero-backdrop ${heroExpanded ? "visible" : "invisible"}`}
@@ -167,3 +168,7 @@ const Hero = ({ selectedMovie, heroExpanded, closeHero }) => {
 };
 
 export default Hero;
+
+// const Genre = ({genre.id, genre}) => {
+
+// }

@@ -12,9 +12,11 @@ export const fetchMovies = (type, query, genres) => axios.get(`${TMDB_API_URL}/$
   params: {
     api_key: TMDB_API_KEY,
     include_adult: false,
+    watch_region: "US",
+    region: "US",
     query: query, 
     with_genres: genres,
-    watch_region: "USA",
+    "vote_count.gte": 20
   },
 });
 
